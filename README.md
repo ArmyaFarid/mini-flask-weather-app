@@ -19,15 +19,25 @@ The application defines two routes, `/weather` and `/weatherXML`, which fetch we
 
 ## Installation
 
-# Clone this repository
+### Clone this repository
 
 git clone https://github.com/yourusername/flask-weather-app.git
 
+### Init the virtual enviroment
+```python3 -m venv venv```
 
-# Install requirements
+### Activate the venv 
+
+## for linux/macOs
+```source venv/bin/activate```
+
+## for windows
+```.\venv\Scripts\activate```
+
+### Install requirements
 ``` pip install -r requirements.txt ```
 
-# Run the application
+### Run the application
 ``` flask --app app run ```
 
 
