@@ -21,7 +21,7 @@ The application defines two routes, `/weather` and `/weatherXML`, which fetch we
 
 ### Clone this repository
 
-git clone https://github.com/yourusername/flask-weather-app.git
+git clone https://github.com/ArmyaFarid/mini-flask-weather-app
 
 ### Init the virtual enviroment
 ```python3 -m venv venv```
