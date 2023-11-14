@@ -37,6 +37,10 @@ git clone https://github.com/ArmyaFarid/mini-flask-weather-app
 ### Install requirements
 ``` pip install -r requirements.txt ```
 
+### Set the correct 
+```WEATHERAPI_KEY='YOUR_API_KEY'```
+
+
 ### Run the application
 ``` flask --app app run ```
 
