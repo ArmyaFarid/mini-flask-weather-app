@@ -46,6 +46,7 @@ def weather_home():
     # Construction de l'URL de l'API météo
     api_url = f'http://api.weatherapi.com/v1/forecast.json?key={WEATHERAPI_KEY}&q={param}&days={number_of_days_forcast}'
 
+
     # Envoi de la requête à l'API météo
     response = urlopen(api_url) 
 
