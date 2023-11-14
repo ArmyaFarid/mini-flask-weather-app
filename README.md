@@ -9,7 +9,7 @@ This is a simple Flask application that uses the WeatherAPI to fetch and display
 - Support for different locations
 - Support for latitude and longitude input
 - Fetch data in JSON format
-- Fetch data in XML format and convert it to JSON
+- Fetch data in XML format and convert it to python dick
 
 ## Code Overview
 
@@ -19,21 +19,16 @@ The application defines two routes, `/weather` and `/weatherXML`, which fetch we
 
 ## Installation
 
-1. Clone this repository
+# Clone this repository
 
 git clone https://github.com/yourusername/flask-weather-app.git
 
-pip install -r requirements.txt
 
-For Unix/Linux
-export FLASK_APP=app.py
+# Install requirements
+``` pip install -r requirements.txt ```
 
-For Windows
-set FLASK_APP=app.py
-
-4. Run the application
-
-flask run
+# Run the application
+``` flask --app app run ```
 
 
 ## Usage

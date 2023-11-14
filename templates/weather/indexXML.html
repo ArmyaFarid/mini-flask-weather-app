@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - www.codingnepalweb.com -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Weather App Project JavaScript | CodingNepal</title>
+    <link rel="stylesheet" href="static/weather/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="static/weather/scriptXML.js" defer></script>
+  </head>
+  <body>
+    <h1>Weather Dashboard -- {{location['country']}}</h1>
+    <div class="container">
+      <div class="weather-input">
+        <form action="{{ url_for('weather_homeXML') }}" method="get">
+
+          <h3 id="selectedDaysDisplay">Selected Forecast Days: 7</h3>
+          <input type="range" id="forecastSlider" min="2" max="14" value="7" step="1" oninput="updateSelectedDays()" name='number_of_days_forcast'>
+
+          <h3>Enter a City Name</h3>
+          <input class="city-input" type="text" placeholder="E.g., New York, London, Tokyo" name="location">
+          
+          <button class="search-btn">Search</button>
+        </form>
+        <div class="separator"></div>
+        <button class="location-btn">Use Current Location</button>
+
+        <button class="gohome-btn">
+          <span class="home-icon">&#8962;</span>
+          Go to home
+        </button>
+
+      </div>
+
+      <div class="weather-data">
+        <div class="current-weather">
+          <div class="details">
+            <h2>{{location['country']}} ( {{location['localtime']}} )</h2>
+            <h6>Temperature: {{current_weather['temp_c']}}°C</h6>
+            <h6>Wind: {{current_weather['wind_mph']}} M/S</h6>
+            <h6>Humidity: {{current_weather['humidity']}}%</h6>
+          </div>
+          <div class="icon">
+            <img src={{current_weather['condition']['icon']}} alt="weather-icon">
+            <h6>{{current_weather['condition']['text']}}</h6>
+        </div>
+        </div>
+        <div class="days-forecast">
+          <h2>{{forecast_days|length}}-Day Forecast</h2>
+          <ul class="weather-cards">
+            {% for day in forecast_days %}
+            <li class="card">
+              <h3>{{ day['date'] }}</h3>
+              <img src={{ day['day']['condition']['icon'] }} alt="weather-icon">
+              <h6>Temp: {{ day['day']['avgtemp_c'] }}C</h6>
+              <h6>Wind: {{ day['day']['maxwind_mph'] }}M/S</h6>
+              <h6>Humidity: {{ day['day']['avghumidity'] }}%</h6>
+            </li>
+          {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script>
+      function updateSelectedDays() {
+          const forecastSlider = document.getElementById('forecastSlider');
+          const selectedDaysDisplay = document.getElementById('selectedDaysDisplay');
+
+          const selectedDays = forecastSlider.value;
+          selectedDaysDisplay.textContent = `Selected Forecast Days: ${selectedDays}`;
+
+          // You can use the selectedDays value in your JavaScript logic or submit it to the server
+          // For example, you can make an AJAX request to the server with the selectedDays value
+      }
+  </script>
+  </body>
+</html>
